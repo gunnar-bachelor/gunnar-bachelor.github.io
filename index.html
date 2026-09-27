@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<section class="hero grid">
+  <h1 class="hero-name">{{ site.name | split: ' ' | join: '<br>' }}</h1>
+  <p class="hero-role">{{ site.role }}<br><span class="muted">{{ site.location }}</span></p>
+  <p class="hero-intro">{{ site.intro }}</p>
+  {% if site.availability and site.availability != "" %}
+  <p class="hero-status"><span class="dot" aria-hidden="true"></span>{{ site.availability }}</p>
+  {% endif %}
+</section>
+
+<section class="section grid" id="about">
+  <h2 class="label"><span class="num">01</span>About</h2>
+  <div class="about-text">{{ site.about | markdownify }}</div>
+  <div class="about-list">
+    <h3 class="small-label">Services</h3>
+    <ul>
+      {% for service in site.services %}<li>{{ service }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section grid" id="work">
+  <h2 class="label"><span class="num">02</span>Selected work</h2>
+  {% assign projects = site.projects | sort: 'year' | reverse %}
+  <ol class="work">
+    <li class="work-head" aria-hidden="true">
+      <span class="work-num">No.</span>
+      <span class="work-title">Project</span>
+      <span class="work-cat">Discipline</span>
+      <span class="work-year">Year</span>
+    </li>
+    {% for project in projects %}
+    <li>
+      <a class="work-row" href="{{ project.url | relative_url }}">
+        <span class="work-num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <span class="work-title">{{ project.title }}</span>
+        <span class="work-cat">{{ project.category }}</span>
+        <span class="work-year">{{ project.year }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="section grid" id="contact">
+  <h2 class="label"><span class="num">03</span>Contact</h2>
+  <a class="contact-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+  <ul class="contact-links">
+    {% for link in site.links %}<li><a href="{{ link.url }}">{{ link.label }} ↗</a></li>{% endfor %}
+  </ul>
+</section>

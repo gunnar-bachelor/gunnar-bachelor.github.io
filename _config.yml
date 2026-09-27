@@ -1,0 +1,65 @@
+# ───────────────────────────────────────────────
+#  Your details: edit everything in this block.
+# ───────────────────────────────────────────────
+title: Jane Doe                      # browser tab + header mark
+name: Jane Doe                       # large hero name (each word gets its own line)
+role: Independent designer & developer
+location: Zürich / Remote
+availability: Available for new projects from November 2026   # leave empty to hide
+description: Freelance designer and developer building clear, functional identities and websites.
+
+intro: >
+  I design and build identities, websites and digital products
+  for studios, cultural institutions and companies that value clarity.
+
+about: >
+  I have worked independently for eight years, previously at studios in
+  Basel and Berlin. I work directly with clients from first conversation
+  to final delivery. That means fewer handovers and better work.
+
+
+  Every project starts with a question: what is essential?
+
+services:
+  - Visual identity
+  - Web design
+  - Front-end development
+  - Editorial & print
+  - Art direction
+
+email: hello@example.com
+links:
+  - label: GitHub
+    url: https://github.com/yourname
+  - label: LinkedIn
+    url: https://linkedin.com/in/yourname
+  - label: Read.cv
+    url: https://read.cv/yourname
+
+# ───────────────────────────────────────────────
+#  Site settings
+# ───────────────────────────────────────────────
+# If the site lives at https://USERNAME.github.io, leave baseurl empty.
+# If it lives at https://USERNAME.github.io/REPO, set baseurl: "/REPO".
+url: ""
+baseurl: ""
+
+markdown: kramdown
+
+collections:
+  projects:
+    output: true
+    permalink: /work/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

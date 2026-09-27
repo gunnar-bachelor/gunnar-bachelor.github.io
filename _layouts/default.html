@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.summary | default: site.description | strip_html | escape }}">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body id="top">
+  <header class="site-header grid">
+    <a class="site-mark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav class="site-nav">
+      <a href="{{ '/#about' | relative_url }}">About</a>
+      <a href="{{ '/#work' | relative_url }}">Work</a>
+      <a href="{{ '/#contact' | relative_url }}">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer class="site-footer grid">
+    <p class="footer-copy">© {{ site.time | date: '%Y' }} {{ site.name }}</p>
+    <p class="footer-grid-hint">Press <kbd>G</kbd> to show the grid</p>
+    <a class="footer-top" href="#top">Back to top ↑</a>
+  </footer>
+
+  <div class="grid-overlay" aria-hidden="true" hidden>
+    <div class="grid">{% for i in (1..12) %}<span></span>{% endfor %}</div>
+  </div>
+  <script src="{{ '/assets/js/grid.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{% assign projects = site.projects | sort: 'year' | reverse %}
+{% for p in projects %}{% if p.url == page.url %}{% assign idx = forloop.index0 %}{% assign num = forloop.index %}{% endif %}{% endfor %}
+{% assign next_idx = idx | plus: 1 %}
+{% if next_idx >= projects.size %}{% assign next_idx = 0 %}{% endif %}
+{% assign next = projects[next_idx] %}
+
+<article class="project">
+  <header class="project-head grid">
+    <p class="label"><span class="num">{{ num | prepend: '0' | slice: -2, 2 }}</span><a href="{{ '/#work' | relative_url }}">← Work</a></p>
+    <h1 class="project-title">{{ page.title }}</h1>
+    {% if page.summary %}<p class="project-summary">{{ page.summary }}</p>{% endif %}
+  </header>
+
+  <dl class="project-meta grid">
+    {% if page.client %}<div><dt>Client</dt><dd>{{ page.client }}</dd></div>{% endif %}
+    {% if page.year %}<div><dt>Year</dt><dd>{{ page.year }}</dd></div>{% endif %}
+    {% if page.category %}<div><dt>Discipline</dt><dd>{{ page.category }}</dd></div>{% endif %}
+    {% if page.link %}<div><dt>Live</dt><dd><a href="{{ page.link }}">{{ page.link | remove: 'https://' | remove: 'http://' | remove: 'www.' }} ↗</a></dd></div>{% endif %}
+  </dl>
+
+  {% if page.cover %}
+  <figure class="project-cover">
+    <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
+  </figure>
+  {% endif %}
+
+  <div class="grid">
+    <div class="prose">{{ content }}</div>
+  </div>
+
+  {% if next and next.url != page.url %}
+  <nav class="project-next grid">
+    <p class="label"><span class="num">→</span>Next project</p>
+    <a class="project-next-link" href="{{ next.url | relative_url }}">{{ next.title }}</a>
+  </nav>
+  {% endif %}
+</article>
