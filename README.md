@@ -4,7 +4,7 @@ A minimal, dark portfolio site in the Swiss style, built with Jekyll for GitHub 
 
 ## Edit your details
 
-Everything about you (name, intro, about text, services, email, links) lives at the top of **`_config.yml`**.
+Everything about you (name, intro, about text, services, integrations, process steps, contact note, email, links) lives at the top of **`_config.yml`**.
 
 ## Add a project
 
@@ -15,7 +15,9 @@ Create a new Markdown file in **`_projects/`**, for example `_projects/my-new-pr
 title: My New Project
 year: 2026
 client: Client Name          # optional
-category: Identity, Web      # shown in the work list
+category: Operations, Integration   # "Scope" in the work list
+duration: 8 weeks            # optional
+stack: Python, PostgreSQL    # optional
 summary: One sentence that describes the project.
 cover: /assets/img/projects/my-new-project.jpg   # optional
 link: https://example.com    # optional
@@ -36,7 +38,7 @@ Commit and push the file. It appears on the home page within a minute or so.
 - Projects are sorted by `year`, newest first. Always use a plain number, such as `year: 2026`.
 - Put images in `assets/img/projects/`.
 - To hide a project without deleting it, add `published: false` to its front matter.
-- The three sample projects are placeholders, so delete them when you add your own.
+- The five sample case studies (Hollis & Reed, Larkspur, Cedar Row, Tallgrass, Brennan) are fictional placeholders, including the client quotes. Replace them with real work before launch.
 
 ## Publish on GitHub Pages
 

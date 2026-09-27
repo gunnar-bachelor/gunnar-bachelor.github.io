@@ -19,6 +19,14 @@ layout: default
       {% for service in site.services %}<li>{{ service }}</li>{% endfor %}
     </ul>
   </div>
+  {% if site.integrations %}
+  <div class="about-list about-list-2">
+    <h3 class="small-label">Works with</h3>
+    <ul>
+      {% for tool in site.integrations %}<li>{{ tool }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 </section>
 
 <section class="section grid" id="work">
@@ -28,7 +36,7 @@ layout: default
     <li class="work-head" aria-hidden="true">
       <span class="work-num">No.</span>
       <span class="work-title">Project</span>
-      <span class="work-cat">Discipline</span>
+      <span class="work-cat">Scope</span>
       <span class="work-year">Year</span>
     </li>
     {% for project in projects %}
@@ -44,8 +52,22 @@ layout: default
   </ol>
 </section>
 
+<section class="section grid" id="process">
+  <h2 class="label"><span class="num">03</span>Process</h2>
+  <ol class="process">
+    {% for step in site.process %}
+    <li class="process-step">
+      <span class="process-num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+      <h3 class="process-title">{{ step.title }}</h3>
+      <p class="process-text">{{ step.text }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
 <section class="section grid" id="contact">
-  <h2 class="label"><span class="num">03</span>Contact</h2>
+  <h2 class="label"><span class="num">04</span>Contact</h2>
+  {% if site.contact_note %}<p class="contact-note">{{ site.contact_note }}</p>{% endif %}
   <a class="contact-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
   <ul class="contact-links">
     {% for link in site.links %}<li><a href="{{ link.url }}">{{ link.label }} ↗</a></li>{% endfor %}

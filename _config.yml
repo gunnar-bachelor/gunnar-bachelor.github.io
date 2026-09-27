@@ -1,40 +1,89 @@
 # ───────────────────────────────────────────────
 #  Your details: edit everything in this block.
 # ───────────────────────────────────────────────
-title: Jane Doe                      # browser tab + header mark
-name: Jane Doe                       # large hero name (each word gets its own line)
-role: Independent designer & developer
-location: Zürich / Remote
-availability: Available for new projects from November 2026   # leave empty to hide
-description: Freelance designer and developer building clear, functional identities and websites.
+title: Gunnar Bachelor                # browser tab + header mark
+name: Gunnar Bachelor                 # large hero name (each word gets its own line)
+role: Business systems consultant
+location: US-based / Working remotely
+availability: Booking new projects for January 2027   # leave empty to hide
+description: Gunnar Bachelor builds custom software for small businesses — dispatch boards, order portals, quoting tools and the integrations that connect them.
 
 intro: >
-  I design and build identities, websites and digital products
-  for studios, cultural institutions and companies that value clarity.
+  I build the software small businesses actually run on: dispatch
+  boards, order portals, quoting tools, and the integrations that
+  stop your team from typing the same thing in three places.
 
 about: >
-  I have worked independently for eight years, previously at studios in
-  Basel and Berlin. I work directly with clients from first conversation
-  to final delivery. That means fewer handovers and better work.
+  Most of the businesses I work with have outgrown their spreadsheets
+  but not their budget. They have ten to a hundred people, a few
+  off-the-shelf tools that almost fit, and an office manager holding
+  it all together by hand.
 
 
-  Every project starts with a question: what is essential?
+  I start by sitting with the people doing the work and mapping how
+  jobs, orders and money actually move through the business. Then I
+  build the smallest system that removes the bottleneck and connects
+  to the tools you already pay for.
+
+
+  You work with me directly, from the first call to the last line of
+  code. No account managers, no offshore handoff, and you own
+  everything I write.
 
 services:
-  - Visual identity
-  - Web design
-  - Front-end development
-  - Editorial & print
-  - Art direction
+  - Process & systems audits
+  - Custom internal tools
+  - Customer & vendor portals
+  - Integrations & automation
+  - Data migration & reporting
+  - Ongoing support
 
-email: hello@example.com
+integrations:
+  - QuickBooks Online
+  - Square
+  - Shopify
+  - Google Workspace
+  - Microsoft 365
+  - Stripe
+  - Twilio
+  - Airtable
+
+process:
+  - title: Discovery
+    text: >
+      One to two weeks, fixed fee. I interview your team, map the
+      workflow, and deliver a written plan with scope, cost and a
+      clear first release. It's yours to keep, whether or not we
+      go further.
+  - title: Build
+    text: >
+      Work ships in small releases every two weeks, so your team is
+      using real software within the first month and shaping what
+      comes next.
+  - title: Launch
+    text: >
+      I migrate your existing data, train staff on site or over
+      video, and stay close for the first few weeks while the new
+      system settles in.
+  - title: Support
+    text: >
+      Most clients keep a small monthly retainer for fixes, hosting
+      and improvements. No long contracts, and the source code and
+      documentation are always yours.
+
+contact_note: >
+  Tell me a little about your business and where things are
+  getting stuck. I reply to every message within two working days,
+  and the first call is always free.
+
+email: hello@gunnarbachelor.com
 links:
   - label: GitHub
-    url: https://github.com/yourname
+    url: https://github.com/gnnr-b
   - label: LinkedIn
-    url: https://linkedin.com/in/yourname
-  - label: Read.cv
-    url: https://read.cv/yourname
+    url: https://linkedin.com/in/gunnarbachelor
+  - label: Book a call
+    url: https://cal.com/gunnarbachelor
 
 # ───────────────────────────────────────────────
 #  Site settings

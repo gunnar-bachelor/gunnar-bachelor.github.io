@@ -17,7 +17,9 @@ layout: default
   <dl class="project-meta grid">
     {% if page.client %}<div><dt>Client</dt><dd>{{ page.client }}</dd></div>{% endif %}
     {% if page.year %}<div><dt>Year</dt><dd>{{ page.year }}</dd></div>{% endif %}
-    {% if page.category %}<div><dt>Discipline</dt><dd>{{ page.category }}</dd></div>{% endif %}
+    {% if page.category %}<div><dt>Scope</dt><dd>{{ page.category }}</dd></div>{% endif %}
+    {% if page.duration %}<div><dt>Duration</dt><dd>{{ page.duration }}</dd></div>{% endif %}
+    {% if page.stack %}<div><dt>Stack</dt><dd>{{ page.stack }}</dd></div>{% endif %}
     {% if page.link %}<div><dt>Live</dt><dd><a href="{{ page.link }}">{{ page.link | remove: 'https://' | remove: 'http://' | remove: 'www.' }} ↗</a></dd></div>{% endif %}
   </dl>
 

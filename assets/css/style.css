@@ -160,6 +160,22 @@ ul, ol { padding: 0; list-style: none; }
 .about-list { grid-column: 7 / 10; grid-row: 2; }
 .about-list li { padding-block: 0.4rem; border-bottom: 1px solid var(--line); }
 
+.about-list-2 { grid-column: 10 / 13; }
+
+/* ── Process ────────────────────────────────── */
+
+.process {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 3rem;
+}
+.process-step { padding-top: 1rem; border-top: 1px solid var(--line); }
+.process-num { display: block; font-size: var(--fs-sm); color: var(--accent); font-variant-numeric: tabular-nums; margin-bottom: 2.5rem; }
+.process-title { font-size: var(--fs-md); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem; }
+.process-text { font-size: var(--fs-sm); color: var(--muted); max-width: 30ch; }
+
 /* ── Work index ─────────────────────────────── */
 
 .work { grid-column: 1 / -1; }
@@ -196,6 +212,13 @@ ul, ol { padding: 0; list-style: none; }
 .work-row:hover .work-title { color: var(--accent); }
 
 /* ── Contact ────────────────────────────────── */
+
+.contact-note {
+  grid-column: 4 / 10;
+  font-size: var(--fs-md);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
 
 .contact-email {
   grid-column: 4 / -1;
@@ -281,6 +304,8 @@ kbd { font: inherit; border: 1px solid var(--line); padding: 0 0.35em; }
   letter-spacing: -0.015em;
 }
 
+.prose blockquote p + p { margin-top: 1rem; font-size: var(--fs-sm); color: var(--muted); letter-spacing: 0; }
+
 .project-next {
   padding-block: 1.5rem var(--section);
   border-top: 1px solid var(--fg);
@@ -294,6 +319,10 @@ kbd { font: inherit; border: 1px solid var(--line); padding: 0 0.35em; }
   letter-spacing: -0.04em;
 }
 
+@media (max-width: 1000px) and (min-width: 761px) {
+  .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 /* ── Small screens ──────────────────────────── */
 
 @media (max-width: 760px) {
@@ -302,13 +331,16 @@ kbd { font: inherit; border: 1px solid var(--line); padding: 0 0.35em; }
   .site-nav a { flex: none; }
 
   .hero-role, .hero-intro, .hero-status,
-  .label, .about-text, .about-list,
-  .contact-email, .contact-links,
+  .label, .about-text, .about-list, .about-list-2,
+  .contact-note, .contact-email, .contact-links,
   .project-summary, .prose, .project-next-link { grid-column: 1 / -1; }
 
   .hero-name { font-size: 22vw; }
   .hero-status { margin-top: -1.5rem; }
   .about-list { grid-row: auto; }
+  .process { grid-template-columns: 1fr; row-gap: 2rem; }
+  .contact-email { font-size: 7.5vw; }
+  .process-num { margin-bottom: 1rem; }
 
   .work-head { display: none; }
   .work-num   { grid-column: 1 / 3; }
