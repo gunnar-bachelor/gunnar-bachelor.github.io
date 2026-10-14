@@ -1,0 +1,193 @@
+/* Blog: dark, one monospace face, one green accent. */
+
+:root {
+  --bg: #0b0b0b;
+  --fg: #d9d8d2;
+  --dim: #75746e;
+  --hi: #9be36d;
+  --field: #161616;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 15px/1.7 "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--hi); color: var(--bg); }
+
+h1, h2, h3, h4, p, ol, ul, figure, blockquote { margin: 0; }
+h1, h2, h3, h4, strong { font-size: inherit; font-weight: 600; }
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 1px solid var(--hi); outline-offset: 2px; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+.dim { color: var(--dim); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Frame */
+
+.page {
+  max-width: calc(72ch + 2.5rem);
+  margin: 0 auto;
+  padding: calc(1.5rem + env(safe-area-inset-top, 0px)) 1.25rem calc(2rem + env(safe-area-inset-bottom, 0px));
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 3ch;
+  margin-bottom: 4rem;
+}
+.site-name { font-weight: 600; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0 3ch; }
+.site-header nav a { color: var(--dim); }
+.site-header nav a:hover { color: var(--fg); }
+.site-header nav a[aria-current="page"] { color: var(--hi); }
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 3ch;
+  margin-top: 6rem;
+  color: var(--dim);
+}
+.site-footer a:hover { color: var(--fg); }
+
+/* Sections */
+
+.lede { max-width: 56ch; }
+
+.block { margin-top: 4rem; }
+.block > .dim { margin-bottom: 1rem; }
+.label { margin-bottom: 1rem; color: var(--hi); font-weight: 400; }
+.label .dim { margin-left: 1ch; }
+
+/* Post lists. Each row is one link; it inverts on hover like a selected line. */
+
+.posts { padding: 0; list-style: none; }
+.posts a {
+  display: grid;
+  grid-template-columns: 9ch 1fr auto;
+  gap: 0 3ch;
+  align-items: baseline;
+  padding: 0.45rem 1ch;
+  margin-inline: -1ch;
+}
+.posts time { color: var(--dim); font-variant-numeric: tabular-nums; }
+.posts .topic { color: var(--dim); text-align: right; }
+.posts a:hover, .posts a:focus-visible { background: var(--fg); color: var(--bg); outline: none; }
+.posts a:hover time, .posts a:hover .topic,
+.posts a:focus-visible time, .posts a:focus-visible .topic { color: var(--bg); }
+
+.topic-index { display: flex; flex-wrap: wrap; gap: 0.25rem 3ch; }
+.topic-index a:hover { color: var(--hi); }
+.topic-index .dim { margin-left: 0.5ch; }
+.topic-index + .block { margin-top: 3rem; }
+.block[id] { scroll-margin-top: 2rem; }
+
+/* Subscribe */
+
+.subscribe { display: flex; flex-wrap: wrap; gap: 0.5rem 1ch; }
+.subscribe input, .subscribe button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  border-radius: 0;
+  padding: 0.45rem 1ch;
+}
+.subscribe input { flex: 1 1 24ch; min-width: 0; background: var(--field); caret-color: var(--hi); }
+.subscribe input::placeholder { color: var(--dim); }
+.subscribe input:focus { outline: 1px solid var(--dim); outline-offset: -1px; }
+.subscribe button { cursor: pointer; background: var(--fg); color: var(--bg); }
+.subscribe button:hover, .subscribe button:focus-visible { background: var(--hi); outline: none; }
+
+/* A post */
+
+.post-head { margin-bottom: 2.5rem; }
+.back { display: inline-block; margin-bottom: 2rem; color: var(--dim); }
+.back:hover { color: var(--fg); }
+.post-head h1 { margin-bottom: 0.25rem; }
+.topic-link:hover { color: var(--hi); }
+
+.prose { max-width: 72ch; }
+.prose > * + * { margin-top: 1.25em; }
+.prose > h2, .prose > h3 { margin-top: 2.25em; }
+.prose > h2 + *, .prose > h3 + * { margin-top: 0.5em; }
+.prose h2::before { content: "## "; color: var(--dim); font-weight: 400; }
+.prose h3::before { content: "### "; color: var(--dim); font-weight: 400; }
+.prose a { text-decoration: underline; text-decoration-color: var(--dim); text-underline-offset: 0.2em; }
+.prose a:hover { text-decoration-color: var(--hi); }
+
+.prose ul, .prose ol { padding: 0; list-style: none; }
+.prose li { position: relative; padding-left: 3ch; }
+.prose li + li { margin-top: 0.4em; }
+.prose ul > li::before { content: "-"; position: absolute; left: 0; color: var(--dim); }
+.prose ol { counter-reset: item; }
+.prose ol > li { counter-increment: item; }
+.prose ol > li::before { content: counter(item) "."; position: absolute; left: 0; color: var(--dim); }
+
+.prose blockquote { position: relative; padding-left: 3ch; color: var(--dim); }
+.prose blockquote::before { content: ">"; position: absolute; left: 0; }
+
+.prose hr { border: 0; margin-block: 2.5em; }
+.prose hr::after { content: "* * *"; display: block; color: var(--dim); }
+
+.prose code, .prose pre { font: inherit; }
+.prose :not(pre) > code { color: var(--hi); }
+.prose pre { overflow-x: auto; padding: 1rem 2ch; background: var(--field); }
+.prose .highlight { background: none; }
+.prose figcaption { margin-top: 0.5em; color: var(--dim); }
+.prose table { width: 100%; border-collapse: collapse; }
+.prose th, .prose td { text-align: left; padding: 0.2rem 2ch 0.2rem 0; vertical-align: top; }
+.prose th { color: var(--dim); font-weight: 400; }
+
+/* Older / newer: two large targets side by side */
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 3ch;
+  margin-top: 5rem;
+}
+.pager a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.5ch;
+  background: var(--field);
+}
+.pager a:hover, .pager a:focus-visible { background: var(--fg); color: var(--bg); outline: none; }
+.pager a:hover .dim, .pager a:focus-visible .dim { color: var(--bg); }
+.pager-newer { grid-column: 2; text-align: right; }
+
+/* About: contact list */
+
+.contact { padding: 0; list-style: none; }
+.contact li { display: grid; grid-template-columns: 12ch 1fr; gap: 0 3ch; align-items: baseline; }
+.contact a { justify-self: start; overflow-wrap: anywhere; }
+.contact a:hover { color: var(--hi); }
+
+/* Narrow screens */
+
+@media (max-width: 600px) {
+  body { font-size: 14px; }
+  .site-header { margin-bottom: 3rem; }
+  .posts a { grid-template-columns: 9ch 1fr; }
+  .posts .topic { display: none; }
+  .pager { grid-template-columns: 1fr; }
+  .pager-newer { grid-column: 1; grid-row: 1; text-align: left; }
+  .contact li { grid-template-columns: 1fr; }
+}

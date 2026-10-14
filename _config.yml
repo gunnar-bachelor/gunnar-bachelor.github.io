@@ -1,0 +1,76 @@
+# ───────────────────────────────────────────────
+#  Your details: edit everything in this block.
+# ───────────────────────────────────────────────
+title: Gunnar Bachelor                # browser tab + landing page
+tagline: I build the software small businesses actually run on.
+description: Notes from Gunnar Bachelor on building custom software for small businesses — process, tools, pricing and what happens after launch.
+
+intro: >                              # opening text on the blog
+  Notes on building the software small businesses actually run on:
+  what works, what breaks, and what I'd do differently next time.
+
+subscribe_note: >
+  A new post every few weeks, sent to your inbox. No tracking, and you
+  can unsubscribe in one click.
+
+# Where the subscribe form posts to. This is a Buttondown embed URL;
+# replace USERNAME with your Buttondown username (or use any provider
+# whose form accepts a POST with an "email" field).
+newsletter_url: https://buttondown.com/api/emails/embed-subscribe/USERNAME
+
+about: >                              # About page text (Markdown)
+  Most of the businesses I work with have outgrown their spreadsheets
+  but not their budget. They have ten to a hundred people, a few
+  off-the-shelf tools that almost fit, and an office manager holding
+  it all together by hand.
+
+
+  I start by sitting with the people doing the work and mapping how
+  jobs, orders and money actually move through the business. Then I
+  build the smallest system that removes the bottleneck and connects
+  to the tools you already pay for.
+
+
+  You work with me directly, from the first call to the last line of
+  code. No account managers, no offshore handoff, and you own
+  everything I write.
+
+email: hello@gunnarbachelor.com
+links:
+  - label: GitHub
+    url: https://github.com/gnnr-b
+  - label: X
+    url: https://x.com/gunnarbachelor
+  - label: Book a call
+    url: https://cal.com/gunnarbachelor
+
+# ───────────────────────────────────────────────
+#  Site settings
+# ───────────────────────────────────────────────
+# If the site lives at https://USERNAME.github.io, leave baseurl empty.
+# If it lives at https://USERNAME.github.io/REPO, set baseurl: "/REPO".
+url: ""
+baseurl: ""
+
+markdown: kramdown
+
+permalink: /blog/:title/
+
+plugins:
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

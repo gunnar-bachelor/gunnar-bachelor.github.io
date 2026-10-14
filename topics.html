@@ -1,0 +1,25 @@
+---
+layout: default
+title: Topics
+permalink: /topics/
+---
+{% assign groups = site.posts | group_by: 'topic' | sort: 'name' %}
+<nav class="topic-index" aria-label="Topics">
+  {% for g in groups %}<a href="#{{ g.name | slugify }}">{{ g.name }} <span class="dim">{{ g.size }}</span></a>{% endfor %}
+</nav>
+
+{% for g in groups %}
+<section class="block" id="{{ g.name | slugify }}">
+  <h2 class="label">{{ g.name }} <span class="dim">{{ g.size }}</span></h2>
+  <ol class="posts">
+    {% for post in g.items %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %Y' }}</time>
+        <span class="title">{{ post.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endfor %}

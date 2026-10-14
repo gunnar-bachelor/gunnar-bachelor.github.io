@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.summary | default: site.description | strip_html | escape }}">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+  {% if page.layout == 'post' or page.url == '/blog/' %}{% assign here = 'writing' %}{% elsif page.url == '/topics/' %}{% assign here = 'topics' %}{% elsif page.url == '/about/' %}{% assign here = 'about' %}{% endif %}
+  <div class="page">
+    <header class="site-header">
+      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav aria-label="Main">
+        <a href="{{ '/blog/' | relative_url }}"{% if here == 'writing' %} aria-current="page"{% endif %}>Writing</a>
+        <a href="{{ '/topics/' | relative_url }}"{% if here == 'topics' %} aria-current="page"{% endif %}>Topics</a>
+        <a href="{{ '/about/' | relative_url }}"{% if here == 'about' %} aria-current="page"{% endif %}>About</a>
+      </nav>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      {% for link in site.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+    </footer>
+  </div>
+</body>
+</html>
