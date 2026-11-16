@@ -9,6 +9,12 @@ A personal site built with Jekyll for GitHub Pages, set in Geist, with Geist Mon
 
 Everything about you (name, tagline, blog intro, About page text, subscribe note, email, links) lives at the top of **`_config.yml`**.
 
+## Maintenance mode
+
+To take the site down for maintenance, set `maintenance: true` in **`_config.yml`** and push (or edit the file on GitHub and commit). GitHub Pages rebuilds in a minute or two, and every page (home, blog, posts, About, 404) then shows the landing animation with "coming soon" under your name. Search engines are told not to index it. Change the wording with `maintenance_text`. Set `maintenance: false` and push again to bring the site back.
+
+`/feed.xml` is still published while maintenance mode is on.
+
 ## Write a post
 
 Create a Markdown file in **`_posts/`** named `YYYY-MM-DD-slug.md`, for example `_posts/2026-10-20-my-new-post.md`:

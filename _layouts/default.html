@@ -1,4 +1,4 @@
-<!doctype html>
+{% if site.maintenance %}{% include landing.html %}{% else %}<!doctype html>
 <html lang="en">
 <head>
   {% include head.html css='blog.css' %}
@@ -25,4 +25,4 @@
     </footer>
   </div>
 </body>
-</html>
+</html>{% endif %}
