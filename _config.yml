@@ -50,7 +50,7 @@ links:
 # Maintenance mode: set to true and every page (home, blog, posts, About,
 # 404) shows the landing animation with the text below instead of the
 # "read the blog" link. Set back to false to bring the site back.
-maintenance: false
+maintenance: true
 maintenance_text: coming soon
 
 # ───────────────────────────────────────────────
